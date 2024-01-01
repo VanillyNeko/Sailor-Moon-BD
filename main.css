@@ -1,7 +1,7 @@
 /**
  * @name Sailor-Moon-BD
  * @author VanillyNeko
- * @version 0.0.1
+ * @version 1.0.0
  * @description A theme that is themed around Sailor Moon, I am trying to make it self reliant on only itself, Its failing...
  * @donate https://paypal.me/vanillyneko
  * @website https://www.vanillyneko.com/
@@ -204,7 +204,7 @@ element.style
 /* Title Bar Text */
 #app-mount .typeWindows__5fa63:after
 {
-    content: "Sailor Moon Theme v1 By VanillyNeko";
+    content: "Sailor Moon BD By VanillyNeko";
     color: rgb(85, 136, 255);
     font-weight: 500;
 
