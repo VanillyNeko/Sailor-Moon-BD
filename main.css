@@ -113,6 +113,85 @@ body
 
 }
 
+.username_d30d99
+{
+    color: var(--Unread-Chan-Font-Colour);
+}
+
+.name__8d1ec
+{
+    color: var(--main-color);
+}
+
+.overflow__87fe8
+{
+    color: var(--text-muted);
+}
+
+.name_c08dbc
+{
+    color: var(--main-color);
+}
+
+.icon_eff5d4
+{
+    color: var(--text-muted);
+}
+
+.name__02dbd
+{
+    color: var(--main-color);
+}
+
+.linkButtonIcon__2f35b
+{
+    color: var(--Muted-Channel-Text);
+}
+
+.username__81ee6
+{
+    color: var(--Category-Font-Colour);
+}
+
+.theme-dark
+{
+    color: var(--background-primary);
+}
+
+.container__11d72 *
+{
+    color: #593695;
+}
+
+.item__48dda
+{
+    color: var(--main-color);
+}
+
+element.style
+{
+    color: var(--main-color);
+}
+
+.button_afdfd9 .contents_fb6220
+{
+    color: var(--muted-color);
+}
+
+.app_de4237 button
+{
+    color: var(--text-muted);
+}
+
+/*Title Bar Text (Could Be Removed If You Learn To Hate It) */
+#app-mount .typeWindows__5fa63
+{
+    background-color: rgba(234, 164, 255, 0.73);
+    border-bottom: 2px solid var(--primary3-colour);
+    height: 30px;
+    margin: 0px;
+}
+
 /* Title Bar Text (Could Be Removed If You Learn To Hate It) */
 #app-mount .typeWindows__5fa63
 {
