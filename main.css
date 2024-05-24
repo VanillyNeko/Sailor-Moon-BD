@@ -223,6 +223,14 @@ element.style
     background-size: var(--home-icon-image-zoom) !important;
 }
 
+.listItemWrapper__3d465 .wrapper__9916c .homeIcon-r0w4ny 
+{
+    background: var(--home-icon-image) !important;
+    background-position: var(--home-icon-image-position) !important;
+    background-repeat: no-repeat !important;
+    background-size: var(--home-icon-image-zoom) !important;
+}
+
 /* Makes Discord Icon Go Bye Bye */
 .tutorialContainer__890ea
 .listItem_fa7b36
