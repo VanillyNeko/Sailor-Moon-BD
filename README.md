@@ -14,10 +14,10 @@ It is 100% self reliant and does not need other people's repositories to fucntio
  Screenshots:
 
  Friends Page: 
- ![Friends Page](https://vanillyneko.github.io/Sailor-Moon-Theme/assets/screenshots/friends-page.png)
+ ![Friends Page](https://vanillyneko.github.io/Sailor-Moon-BD/assets/screenshots/friends-page.png)
 
  Settings Page: 
- ![Settings Page](https://vanillyneko.github.io/Sailor-Moon-Theme/assets/screenshots/settings.png)
+ ![Settings Page](https://vanillyneko.github.io/Sailor-Moon-BD/assets/screenshots/settings.png)
 
  Server Announcements: 
- ![Server Announcements Neko Family Server](https://vanillyneko.github.io/Sailor-Moon-Theme/assets/screenshots/discord-announcements.png)
+ ![Server Announcements Neko Family Server](https://vanillyneko.github.io/Sailor-Moon-BD/assets/screenshots/discord-announcements.png)
