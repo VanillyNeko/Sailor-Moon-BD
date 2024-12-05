@@ -52,8 +52,9 @@
     --muted-color: rgb(94, 25, 133); /*Muted channel color  [default: rgba(255,255,255,0.1);]*/
 
     /* Background */
-    --background: url('https://vnil.me/KfeHkjEW4950.jpg');
+    /* --background: url('https://vnil.me/KfeHkjEW4950.jpg'); */
     /* --background: url('https://vanillyneko.github.io/Sailor-Moon-BD/assets/chibi-sailor-moon.jpg'); */
+    --background: url(https://wallpapers-clan.com/wp-content/uploads/2023/12/christmas-sailor-moon-luna-desktop-wallpaper-preview.jpg);
     --backgroundposition: center;
     --backgroundsize: cover;
     --backgroundOpacity: 100;
