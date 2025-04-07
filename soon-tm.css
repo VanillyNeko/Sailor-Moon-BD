@@ -1,4 +1,4 @@
-/* === BACKGROUND IMAGE === */
+/* === GLOBAL BACKGROUND IMAGE === */
 #app-mount {
   background-image: var(--background-image) !important;
   background-position: var(--background-position) !important;
@@ -7,44 +7,66 @@
   background-repeat: no-repeat !important;
   background-color: var(--fallback-background-color, #1e1e1e) !important;
 }
-
 #app-mount::after {
   content: "";
   position: fixed;
   inset: 0;
-  background: var(--background-overlay);
-  pointer-events: none;
   z-index: 0;
+  pointer-events: none;
+  background: var(--background-overlay);
   backdrop-filter: blur(var(--background-blur));
 }
 
-/* Z-index stack */
+/* === LAYER STACK FIX === */
 #app-mount > * {
   position: relative;
   z-index: 2;
 }
 
-/* Restore core layout backgrounds */
-.base__3e6af,
-.bg__12180,
-.bg__26a71,
-.layer__2efaa,
-.container__11d72,
-.container__7e23c,
+/* === UI CORE ELEMENTS === */
+.guilds__2b93a,
+.sidebar__02e8d,
+.chat__52833,
+.membersWrap__5ca6b,
+.container__694a1,
 .content__76dcf,
 .contentRegion__0bec1,
 .standardSidebarView__12528,
-.sidebarRegionScroller__1fa7e,
-.chat__52833,
+.scrollerBase__65223,
+.container__11d72,
+.container__7e23c,
+.chatContent__5dca8,
+.panels__58331,
+.privateChannels__93473,
+.privateChannelsHeaderContainer__2a2a4,
+.searchBar__5a20a,
+.searchBarComponent__8f95f,
+.container__590e2,
+.nowPlayingColumn__0df01,
+.container__0a6a9,
+.container__9c57c,
+.container__8261a,
 .container__694a1,
-.membersWrap__5ca6b,
-.sidebar__02e8d,
-.chatContent__5dca8 {
-  background-color: var(--background-primary, rgba(30, 30, 30, 0.8)) !important;
+.container_f79ab4,
+.scroller__5f036,
+.sidebarRegionScroller__1fa7e,
+.theme-dark .scrollableContainer__33e06,
+.layer__2efaa,
+.userPopoutOuter__3884e,
+.userPopout__83ef0,
+.userProfileInnerThemed__2d4f0,
+.userProfileInner__8ff35,
+.root__3eef0,
+.modal__6a96e,
+.rootWithShadow__073a7,
+.userSettings__3a59e,
+.focusLock__10aa5 {
+  background-color: var(--background-primary, rgba(0,0,0,0.65)) !important;
   backdrop-filter: blur(var(--blur-strength, 0px));
+  z-index: 2;
 }
 
-/* === Theme-based variable defaults === */
+/* === COLOR VARIABLES (DARK + LIGHT) === */
 .theme-dark, .theme-light {
   --background-primary: rgba(30, 30, 30, 0.75);
   --background-secondary: rgba(40, 40, 40, 0.6);
@@ -54,15 +76,31 @@
   --channeltextarea-background: rgba(30, 30, 30, 0.6);
   --modal-background: rgba(25, 25, 25, 0.85);
   --profile-body-background-color: rgba(0, 0, 0, 0.2);
+  --scrollbar-thin-thumb: rgba(255, 255, 255, 0.2);
 
   --font-primary: 'Single Day', sans-serif;
   --font-accent: 'Pacifico', cursive;
   --font-button: 'Permanent Marker', cursive;
 
   --corner-radius: 10px;
+  --blur-strength: var(--background-blur, 0px);
 }
 
-/* === Fonts and UI enhancements === */
+/* === LIGHT MODE OVERRIDES === */
+.theme-light {
+  --background-primary: rgba(255, 255, 255, 0.9);
+  --background-secondary: rgba(255, 255, 255, 0.75);
+  --background-tertiary: rgba(245, 245, 245, 0.6);
+  --background-accent: rgba(255, 255, 255, 0.5);
+  --background-floating: rgba(255, 255, 255, 0.6);
+  --channeltextarea-background: rgba(255, 255, 255, 0.7);
+  --modal-background: rgba(255, 255, 255, 0.85);
+  --background-overlay: rgba(255, 255, 255, 0.3);
+  --text-normal: #000 !important;
+  --interactive-normal: #000 !important;
+}
+
+/* === GLOBAL FONT + RADIUS === */
 * {
   font-family: var(--font-primary) !important;
   border-radius: var(--corner-radius) !important;
@@ -72,19 +110,4 @@ h1, h2, h3 {
 }
 button, .button-38aScr, a {
   font-family: var(--font-button) !important;
-}
-
-/* === Light mode fallback colors === */
-.theme-light {
-  --background-overlay: rgba(255, 255, 255, 0.4);
-  --text-normal: #000 !important;
-  --interactive-normal: #000 !important;
-
-  --background-primary: rgba(255, 255, 255, 0.9);
-  --background-secondary: rgba(255, 255, 255, 0.75);
-  --background-tertiary: rgba(245, 245, 245, 0.6);
-  --background-accent: rgba(255, 255, 255, 0.5);
-  --background-floating: rgba(255, 255, 255, 0.6);
-  --channeltextarea-background: rgba(255, 255, 255, 0.7);
-  --modal-background: rgba(255, 255, 255, 0.85);
 }
