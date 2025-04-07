@@ -1,11 +1,17 @@
-/* === GLOBAL BACKGROUND IMAGE === */
+/* ===================================================== *
+ * SAILOR MOON - DISCORD UI THEME (FULL VISIBILITY RESTORE)
+ * Covers all main Discord UI elements with safe transparency
+ * Background image + theme customization support via variables
+ * ===================================================== */
+
+/* === GLOBAL BACKGROUND === */
 #app-mount {
   background-image: var(--background-image) !important;
   background-position: var(--background-position) !important;
   background-size: var(--background-size) !important;
   background-attachment: var(--background-attachment) !important;
   background-repeat: no-repeat !important;
-  background-color: var(--fallback-background-color, #1e1e1e) !important;
+  background-color: var(--fallback-background-color, #1e1e1e);
 }
 #app-mount::after {
   content: "";
@@ -17,66 +23,110 @@
   backdrop-filter: blur(var(--background-blur));
 }
 
-/* === LAYER STACK FIX === */
+/* === GLOBAL STACK ORDER === */
 #app-mount > * {
   position: relative;
   z-index: 2;
 }
 
-/* === UI CORE ELEMENTS === */
-.guilds__2b93a,
-.sidebar__02e8d,
-.chat__52833,
-.membersWrap__5ca6b,
-.container__694a1,
-.content__76dcf,
-.contentRegion__0bec1,
-.standardSidebarView__12528,
-.scrollerBase__65223,
-.container__11d72,
-.container__7e23c,
-.chatContent__5dca8,
-.panels__58331,
-.privateChannels__93473,
-.privateChannelsHeaderContainer__2a2a4,
-.searchBar__5a20a,
-.searchBarComponent__8f95f,
-.container__590e2,
-.nowPlayingColumn__0df01,
-.container__0a6a9,
-.container__9c57c,
-.container__8261a,
-.container__694a1,
-.container_f79ab4,
-.scroller__5f036,
-.sidebarRegionScroller__1fa7e,
-.theme-dark .scrollableContainer__33e06,
-.layer__2efaa,
-.userPopoutOuter__3884e,
-.userPopout__83ef0,
-.userProfileInnerThemed__2d4f0,
-.userProfileInner__8ff35,
-.root__3eef0,
-.modal__6a96e,
-.rootWithShadow__073a7,
-.userSettings__3a59e,
-.focusLock__10aa5 {
-  background-color: var(--background-primary, rgba(0,0,0,0.65)) !important;
-  backdrop-filter: blur(var(--blur-strength, 0px));
-  z-index: 2;
+/* === GUILD LIST (SERVER BAR) === */
+.guilds__2b93a {
+  background-color: var(--background-secondary) !important;
 }
 
-/* === COLOR VARIABLES (DARK + LIGHT) === */
+/* === SIDEBAR (CHANNEL LIST) === */
+.sidebar__02e8d,
+.container__7e23c,
+.privateChannels__93473,
+.scroller__89969,
+.sidebarRegionScroller__1fa7e {
+  background-color: var(--background-primary) !important;
+  backdrop-filter: blur(var(--blur-strength));
+}
+
+/* === CHAT PANEL === */
+.chat__52833,
+.chatContent__5dca8,
+.content__76dcf,
+.scroller__4b984,
+.container__590e2 {
+  background-color: var(--background-primary) !important;
+}
+
+/* === MESSAGE AREA === */
+.messageListItem__6a4fb,
+.message__80c10,
+.container__26baa,
+.repliedMessage__636d2,
+.wrapper__09ecc {
+  background-color: var(--background-tertiary) !important;
+}
+
+/* === MEMBERS LIST (USER LIST) === */
+.membersWrap__5ca6b,
+.container_f79ab4,
+.container__8261a {
+  background-color: var(--background-secondary) !important;
+}
+
+/* === SETTINGS, MODALS, POPUPS === */
+.layer__2efaa,
+.standardSidebarView__12528,
+.userSettings__3a59e,
+.focusLock__10aa5,
+.modal__6a96e,
+.root__3eef0,
+.rootWithShadow__073a7,
+.contentRegion__0bec1 {
+  background-color: var(--background-floating) !important;
+  backdrop-filter: blur(var(--blur-strength));
+}
+
+/* === USER PROFILE & POPOUT === */
+.userPopoutOuter__3884e,
+.userPopout__83ef0,
+.userProfileInner__8ff35,
+.userProfileInnerThemed__2d4f0,
+.userPanelInner__3184c,
+.avatarWrapper__0cd44 {
+  background-color: var(--background-secondary) !important;
+  backdrop-filter: blur(var(--blur-strength));
+}
+
+/* === SEARCH, TOOLBARS, BUTTON ROWS === */
+.searchBar__5a20a,
+.searchBarComponent__8f95f,
+.panels__58331,
+.container__11d72,
+.toolbar__62fb5 {
+  background-color: var(--background-tertiary) !important;
+}
+
+/* === TOOLTIP, CONTEXT MENU === */
+.tooltip__7b090,
+.menu__088f7,
+.menu__088f7 .item__183e8 {
+  background-color: var(--background-floating) !important;
+  border-radius: var(--corner-radius);
+}
+
+/* === SCROLLBARS === */
+::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* === GLOBAL VARIABLES === */
 .theme-dark, .theme-light {
   --background-primary: rgba(30, 30, 30, 0.75);
-  --background-secondary: rgba(40, 40, 40, 0.6);
-  --background-tertiary: rgba(50, 50, 50, 0.4);
-  --background-accent: rgba(80, 80, 80, 0.4);
-  --background-floating: rgba(20, 20, 20, 0.7);
+  --background-secondary: rgba(40, 40, 40, 0.55);
+  --background-tertiary: rgba(60, 60, 60, 0.4);
+  --background-floating: rgba(24, 24, 24, 0.9);
   --channeltextarea-background: rgba(30, 30, 30, 0.6);
-  --modal-background: rgba(25, 25, 25, 0.85);
-  --profile-body-background-color: rgba(0, 0, 0, 0.2);
-  --scrollbar-thin-thumb: rgba(255, 255, 255, 0.2);
+  --modal-background: rgba(0, 0, 0, 0.85);
+  --profile-body-background-color: rgba(0, 0, 0, 0.4);
 
   --font-primary: 'Single Day', sans-serif;
   --font-accent: 'Pacifico', cursive;
@@ -86,21 +136,17 @@
   --blur-strength: var(--background-blur, 0px);
 }
 
-/* === LIGHT MODE OVERRIDES === */
 .theme-light {
-  --background-primary: rgba(255, 255, 255, 0.9);
+  --background-primary: rgba(255, 255, 255, 0.95);
   --background-secondary: rgba(255, 255, 255, 0.75);
   --background-tertiary: rgba(245, 245, 245, 0.6);
-  --background-accent: rgba(255, 255, 255, 0.5);
-  --background-floating: rgba(255, 255, 255, 0.6);
-  --channeltextarea-background: rgba(255, 255, 255, 0.7);
-  --modal-background: rgba(255, 255, 255, 0.85);
+  --background-floating: rgba(255, 255, 255, 0.9);
   --background-overlay: rgba(255, 255, 255, 0.3);
   --text-normal: #000 !important;
   --interactive-normal: #000 !important;
 }
 
-/* === GLOBAL FONT + RADIUS === */
+/* === FONT APPLICATIONS === */
 * {
   font-family: var(--font-primary) !important;
   border-radius: var(--corner-radius) !important;
