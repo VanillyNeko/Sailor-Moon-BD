@@ -1,0 +1,70 @@
+/* === BACKGROUND LAYER === */
+#app-mount {
+  background-image: var(--background-image) !important;
+  background-position: var(--background-position) !important;
+  background-size: var(--background-size) !important;
+  background-attachment: var(--background-attachment) !important;
+  background-repeat: no-repeat !important;
+}
+
+#app-mount::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: var(--background-overlay);
+  pointer-events: none;
+  z-index: 0;
+  backdrop-filter: blur(var(--background-blur));
+}
+
+.appMount, .app-2SL9pv, #app-mount > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* === TRANSPARENCY via variables === */
+.theme-dark, .theme-light {
+  --background-primary: rgba(0, 0, 0, 0.4);
+  --background-secondary: rgba(0, 0, 0, 0.2);
+  --background-tertiary: rgba(0, 0, 0, 0.15);
+  --background-accent: rgba(0, 0, 0, 0.25);
+  --background-floating: rgba(0, 0, 0, 0.5);
+  --channeltextarea-background: rgba(0, 0, 0, 0.25);
+  --modal-background: rgba(0, 0, 0, 0.6);
+  --profile-body-background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* === FONTS & UI === */
+.theme-dark, .theme-light {
+  --font-primary: 'Single Day', sans-serif;
+  --font-accent: 'Pacifico', cursive;
+  --font-button: 'Permanent Marker', cursive;
+
+  --corner-radius: 10px;
+}
+
+* {
+  font-family: var(--font-primary) !important;
+  border-radius: var(--corner-radius) !important;
+}
+h1, h2, h3 {
+  font-family: var(--font-accent) !important;
+}
+button, .button-38aScr, a {
+  font-family: var(--font-button) !important;
+}
+
+/* === LIGHT THEME TWEAKS === */
+.theme-light {
+  --background-overlay: rgba(255, 255, 255, 0.5) !important;
+  --text-normal: #000 !important;
+  --interactive-normal: #000 !important;
+
+  --background-primary: rgba(255, 255, 255, 0.8);
+  --background-secondary: rgba(255, 255, 255, 0.6);
+  --background-tertiary: rgba(255, 255, 255, 0.4);
+  --background-accent: rgba(255, 255, 255, 0.6);
+  --background-floating: rgba(255, 255, 255, 0.6);
+  --channeltextarea-background: rgba(255, 255, 255, 0.5);
+  --modal-background: rgba(255, 255, 255, 0.7);
+}
