@@ -5,6 +5,7 @@
   background-size: var(--background-size) !important;
   background-attachment: var(--background-attachment) !important;
   background-repeat: no-repeat !important;
+  background-color: var(--fallback-background-color, #1e1e1e) !important;
 }
 
 #app-mount::after {
@@ -17,35 +18,41 @@
   backdrop-filter: blur(var(--background-blur));
 }
 
-.appMount, .app-2SL9pv, #app-mount > * {
+/* Z-index stack */
+#app-mount > * {
   position: relative;
   z-index: 2;
 }
 
-/* === TARGETED BACKGROUND CONTAINERS === */
+/* Restore core layout backgrounds */
 .base__3e6af,
 .bg__12180,
+.bg__26a71,
 .layer__2efaa,
 .container__11d72,
 .container__7e23c,
 .content__76dcf,
 .contentRegion__0bec1,
 .standardSidebarView__12528,
-.sidebarRegionScroller__1fa7e {
-  background-color: transparent !important;
-  background: transparent !important;
-  backdrop-filter: none !important;
+.sidebarRegionScroller__1fa7e,
+.chat__52833,
+.container__694a1,
+.membersWrap__5ca6b,
+.sidebar__02e8d,
+.chatContent__5dca8 {
+  background-color: var(--background-primary, rgba(30, 30, 30, 0.8)) !important;
+  backdrop-filter: blur(var(--blur-strength, 0px));
 }
 
-/* === DISCORD VARIABLES (THEME-BASED) === */
+/* === Theme-based variable defaults === */
 .theme-dark, .theme-light {
-  --background-primary: rgba(0, 0, 0, 0.4);
-  --background-secondary: rgba(0, 0, 0, 0.2);
-  --background-tertiary: rgba(0, 0, 0, 0.15);
-  --background-accent: rgba(0, 0, 0, 0.25);
-  --background-floating: rgba(0, 0, 0, 0.5);
-  --channeltextarea-background: rgba(0, 0, 0, 0.25);
-  --modal-background: rgba(0, 0, 0, 0.6);
+  --background-primary: rgba(30, 30, 30, 0.75);
+  --background-secondary: rgba(40, 40, 40, 0.6);
+  --background-tertiary: rgba(50, 50, 50, 0.4);
+  --background-accent: rgba(80, 80, 80, 0.4);
+  --background-floating: rgba(20, 20, 20, 0.7);
+  --channeltextarea-background: rgba(30, 30, 30, 0.6);
+  --modal-background: rgba(25, 25, 25, 0.85);
   --profile-body-background-color: rgba(0, 0, 0, 0.2);
 
   --font-primary: 'Single Day', sans-serif;
@@ -55,6 +62,7 @@
   --corner-radius: 10px;
 }
 
+/* === Fonts and UI enhancements === */
 * {
   font-family: var(--font-primary) !important;
   border-radius: var(--corner-radius) !important;
@@ -66,17 +74,17 @@ button, .button-38aScr, a {
   font-family: var(--font-button) !important;
 }
 
-/* === LIGHT THEME ADJUSTMENTS === */
+/* === Light mode fallback colors === */
 .theme-light {
-  --background-overlay: rgba(255, 255, 255, 0.5) !important;
+  --background-overlay: rgba(255, 255, 255, 0.4);
   --text-normal: #000 !important;
   --interactive-normal: #000 !important;
 
-  --background-primary: rgba(255, 255, 255, 0.8);
-  --background-secondary: rgba(255, 255, 255, 0.6);
-  --background-tertiary: rgba(255, 255, 255, 0.4);
-  --background-accent: rgba(255, 255, 255, 0.6);
+  --background-primary: rgba(255, 255, 255, 0.9);
+  --background-secondary: rgba(255, 255, 255, 0.75);
+  --background-tertiary: rgba(245, 245, 245, 0.6);
+  --background-accent: rgba(255, 255, 255, 0.5);
   --background-floating: rgba(255, 255, 255, 0.6);
-  --channeltextarea-background: rgba(255, 255, 255, 0.5);
-  --modal-background: rgba(255, 255, 255, 0.7);
+  --channeltextarea-background: rgba(255, 255, 255, 0.7);
+  --modal-background: rgba(255, 255, 255, 0.85);
 }
