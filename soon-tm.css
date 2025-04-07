@@ -1,159 +1,88 @@
-/* ===================================================== *
- * SAILOR MOON - DISCORD UI THEME (FULL VISIBILITY RESTORE)
- * Covers all main Discord UI elements with safe transparency
- * Background image + theme customization support via variables
- * ===================================================== */
+/**
+ * @name Sailor Moon BD
+ * @description Polished version with reduced overlay and better panel transparency
+ * @version 1.0.8
+ * @author Vanilly
+ */
 
-/* === GLOBAL BACKGROUND === */
-#app-mount {
-  background-image: var(--background-image) !important;
-  background-position: var(--background-position) !important;
-  background-size: var(--background-size) !important;
-  background-attachment: var(--background-attachment) !important;
-  background-repeat: no-repeat !important;
-  background-color: var(--fallback-background-color, #1e1e1e);
-}
-#app-mount::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background: var(--background-overlay);
-  backdrop-filter: blur(var(--background-blur));
-}
+ @import url("https://fonts.googleapis.com/css2?family=Single+Day&family=Pacifico&family=Permanent+Marker&display=swap");
 
-/* === GLOBAL STACK ORDER === */
-#app-mount > * {
-  position: relative;
-  z-index: 2;
-}
+ :root {
+   --background-image: url("https://vanillyneko.github.io/Sailor-Moon-BD/assets/chibi-sailor-moon.jpg");
+   --background-overlay: rgba(0, 0, 0, 0.15); /* much lighter */
+   --background-blur: 0px;
+   --corner-radius: 10px;
+   --font-primary: 'Single Day', cursive;
+   --font-accent: 'Pacifico', cursive;
+   --font-button: 'Permanent Marker', cursive;
+ }
+ 
+ /* âœ… Background on real Discord UI container */
+ div[class^="layers__"].layers__160d8::before {
+   content: "";
+   position: fixed;
+   inset: 0;
+   background: var(--background-image) center/cover no-repeat !important;
+   z-index: 0;
+   pointer-events: none;
+ }
+ 
+ div[class^="layers__"].layers__160d8::after {
+   content: "";
+   position: fixed;
+   inset: 0;
+   background: var(--background-overlay);
+   backdrop-filter: blur(var(--background-blur));
+   z-index: 1;
+   pointer-events: none;
+ }
+ 
+ /* ðŸŒˆ Softer translucent backgrounds */
+ .theme-dark, .theme-light {
+   --background-primary: rgba(30, 30, 30, 0.6);
+   --background-secondary: rgba(40, 40, 40, 0.4);
+   --background-tertiary: rgba(50, 50, 50, 0.25);
+   --background-floating: rgba(20, 20, 20, 0.35);
+   --channeltextarea-background: rgba(35, 35, 35, 0.35);
+   --modal-background: rgba(25, 25, 25, 0.4);
+   --profile-body-background-color: rgba(0, 0, 0, 0.3);
+ }
+ 
+ .theme-light {
+   --background-primary: rgba(255, 255, 255, 0.75);
+   --background-secondary: rgba(255, 255, 255, 0.55);
+   --background-tertiary: rgba(240, 240, 240, 0.35);
+   --background-floating: rgba(255, 255, 255, 0.4);
+   --channeltextarea-background: rgba(250, 250, 250, 0.4);
+   --modal-background: rgba(255, 255, 255, 0.45);
+   --background-overlay: rgba(255, 255, 255, 0.15);
+   --text-normal: #000 !important;
+   --interactive-normal: #000 !important;
+ }
+ 
+ /* Fonts & UI rounding */
+ * {
+   font-family: var(--font-primary) !important;
+   border-radius: var(--corner-radius) !important;
+ }
+ h1, h2, h3 {
+   font-family: var(--font-accent) !important;
+ }
+ button, .button-38aScr, a {
+   font-family: var(--font-button) !important;
+ }
 
-/* === GUILD LIST (SERVER BAR) === */
-.guilds__2b93a {
-  background-color: var(--background-secondary) !important;
-}
-
-/* === SIDEBAR (CHANNEL LIST) === */
+ /* Force transparency on actual visible containers */
 .sidebar__02e8d,
-.container__7e23c,
-.privateChannels__93473,
-.scroller__89969,
-.sidebarRegionScroller__1fa7e {
-  background-color: var(--background-primary) !important;
-  backdrop-filter: blur(var(--blur-strength));
-}
-
-/* === CHAT PANEL === */
 .chat__52833,
-.chatContent__5dca8,
-.content__76dcf,
-.scroller__4b984,
-.container__590e2 {
-  background-color: var(--background-primary) !important;
-}
-
-/* === MESSAGE AREA === */
-.messageListItem__6a4fb,
-.message__80c10,
-.container__26baa,
-.repliedMessage__636d2,
-.wrapper__09ecc {
-  background-color: var(--background-tertiary) !important;
-}
-
-/* === MEMBERS LIST (USER LIST) === */
+.container__7e23c,
 .membersWrap__5ca6b,
-.container_f79ab4,
-.container__8261a {
-  background-color: var(--background-secondary) !important;
-}
-
-/* === SETTINGS, MODALS, POPUPS === */
-.layer__2efaa,
-.standardSidebarView__12528,
-.userSettings__3a59e,
-.focusLock__10aa5,
-.modal__6a96e,
-.root__3eef0,
-.rootWithShadow__073a7,
-.contentRegion__0bec1 {
-  background-color: var(--background-floating) !important;
-  backdrop-filter: blur(var(--blur-strength));
-}
-
-/* === USER PROFILE & POPOUT === */
-.userPopoutOuter__3884e,
-.userPopout__83ef0,
-.userProfileInner__8ff35,
-.userProfileInnerThemed__2d4f0,
-.userPanelInner__3184c,
-.avatarWrapper__0cd44 {
-  background-color: var(--background-secondary) !important;
-  backdrop-filter: blur(var(--blur-strength));
-}
-
-/* === SEARCH, TOOLBARS, BUTTON ROWS === */
-.searchBar__5a20a,
-.searchBarComponent__8f95f,
-.panels__58331,
-.container__11d72,
-.toolbar__62fb5 {
-  background-color: var(--background-tertiary) !important;
-}
-
-/* === TOOLTIP, CONTEXT MENU === */
-.tooltip__7b090,
-.menu__088f7,
-.menu__088f7 .item__183e8 {
-  background-color: var(--background-floating) !important;
-  border-radius: var(--corner-radius);
-}
-
-/* === SCROLLBARS === */
-::-webkit-scrollbar-thumb {
-  background-color: rgba(255, 255, 255, 0.2);
-}
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-/* === GLOBAL VARIABLES === */
-.theme-dark, .theme-light {
-  --background-primary: rgba(30, 30, 30, 0.75);
-  --background-secondary: rgba(40, 40, 40, 0.55);
-  --background-tertiary: rgba(60, 60, 60, 0.4);
-  --background-floating: rgba(24, 24, 24, 0.9);
-  --channeltextarea-background: rgba(30, 30, 30, 0.6);
-  --modal-background: rgba(0, 0, 0, 0.85);
-  --profile-body-background-color: rgba(0, 0, 0, 0.4);
-
-  --font-primary: 'Single Day', sans-serif;
-  --font-accent: 'Pacifico', cursive;
-  --font-button: 'Permanent Marker', cursive;
-
-  --corner-radius: 10px;
-  --blur-strength: var(--background-blur, 0px);
-}
-
-.theme-light {
-  --background-primary: rgba(255, 255, 255, 0.95);
-  --background-secondary: rgba(255, 255, 255, 0.75);
-  --background-tertiary: rgba(245, 245, 245, 0.6);
-  --background-floating: rgba(255, 255, 255, 0.9);
-  --background-overlay: rgba(255, 255, 255, 0.3);
-  --text-normal: #000 !important;
-  --interactive-normal: #000 !important;
-}
-
-/* === FONT APPLICATIONS === */
-* {
-  font-family: var(--font-primary) !important;
-  border-radius: var(--corner-radius) !important;
-}
-h1, h2, h3 {
-  font-family: var(--font-accent) !important;
-}
-button, .button-38aScr, a {
-  font-family: var(--font-button) !important;
+.content__76dcf,
+.container__694a1,
+.scroller__89969,
+.wrapper__1_HaEi,
+.privateChannels__93473,
+.panels__58331 {
+  background-color: transparent !important;
+  backdrop-filter: blur(var(--background-blur));
 }
